@@ -1,0 +1,30 @@
+{
+  "name": "space-time-r",
+  "version": "1.0.0",
+  "description": "A simple productivity timer with built in music functionality\"",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "webpack serve --config ./webpack.config.js --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Galen Davis",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@reduxjs/toolkit": "^1.6.2",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
+    "redux-logger": "^3.0.6",
+    "regenerator-runtime": "^0.13.9",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.63.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
+  }
+}
