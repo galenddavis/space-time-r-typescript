@@ -1,10 +1,13 @@
 import React from 'react';
-import {SpaceTimer} from './Timer/spaceTimer'
+import { SpaceTimer } from './Timer/spaceTimer'
+import Timer from './Timer/timer'
 
 export const App = () => {
     return (
-        <div className="background">
-            <SpaceTimer />
+        <div>
+            <section>
+                <SpaceTimer />
+            </section>
         </div>
     )
 }
