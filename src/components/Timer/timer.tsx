@@ -1,11 +1,16 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, FunctionComponent } from 'react';
 
-export const Timer = ({ duration, switchClocks }) => {
+interface TimerProps {
+    duration: number, 
+    switchClocks(): any
+}
+
+export const Timer: FunctionComponent<TimerProps> = ({ duration, switchClocks }) => {
     // const [finished, setFinished] = useState(false)
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(duration);
-    const [running, setRunning] = useState(false);
-    const [startBtn, setStartBtn] = useState("Start")
+    const [seconds, setSeconds] = useState<number>(0);
+    const [minutes, setMinutes] = useState<number>(duration);
+    const [running, setRunning] = useState<boolean>(false);
+    const [startBtn, setStartBtn] = useState<string>("Start")
 
     // Timer start/stop toggle
     const toggle = useCallback(() => {
@@ -51,7 +56,7 @@ export const Timer = ({ duration, switchClocks }) => {
 
     // Use effect for countdown functionality
     useEffect(() => {
-        let interval = null;
+        let interval: NodeJS.Timer;
         if (running) {
             interval = setInterval(() => {
                 countDown()

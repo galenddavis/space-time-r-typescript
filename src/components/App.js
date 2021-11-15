@@ -1,6 +1,5 @@
 import React from 'react';
-import { SpaceTimer } from './Timer/spaceTimer'
-import Timer from './Timer/timer'
+import { SpaceTimer } from './Timer/spaceTimer.tsx'
 
 export const App = () => {
     return (

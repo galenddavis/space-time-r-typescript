@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Timer } from './timer'
 
 export const SpaceTimer = () => {
-    const defaultDuration = 25;
-    const shortBreak = 5;
-    const longBreak = 15;
+    const defaultDuration: number = 25;
+    const shortBreak: number = 5;
+    const longBreak: number = 15;
 
-    const [shortBreakCount, setShortBreakCount] = useState(0);
-    const [currentClock, setCurrentClock] = useState(defaultDuration)
+    const [shortBreakCount, setShortBreakCount] = useState<number>(0);
+    const [currentClock, setCurrentClock] = useState<number>(defaultDuration)
 
     // Logic for switching clock durations when timer runs out. 
     const switchClocks = () => {
