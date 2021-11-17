@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/main.scss';
 import { SpaceTimer } from './Timer/spaceTimer.tsx'
 import { VidPlayer } from './Videos/vid-player.tsx'
 

@@ -38,7 +38,7 @@ export const VideoIndex = ({changeVideo}: VideoIdxProps) => {
     return (
         <div>
             <ul className={`video-index ${indexHidden}`}>{vidTitles}</ul>
-            <button className='show-music btn' onClick={toggleIndex}></button>
+            <button className='show-music btn' onClick={toggleIndex}>Show Music</button>
         </div>
     )
 }
