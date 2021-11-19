@@ -34,7 +34,7 @@ export const VideoIndex = ({changeVideo}: VideoIdxProps) => {
         )
     })
 
-    // Returns video index to select song
+    // Returns video index to select song. List of songs that we can click on to chose song
     return (
         <div>
             <ul className={`video-index ${indexHidden}`}>{vidTitles}</ul>

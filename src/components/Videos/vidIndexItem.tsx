@@ -6,6 +6,7 @@ type IndexItemProps ={
     video: Video
 }
 
+// Exports the individual list item detailing one specific video. 
 export const VideoIndexItem = ({selectVid, video}: IndexItemProps) => {
     return (
         <li className="vidItem" onClick={() => selectVid(video.id)}>{video.title}</li>
