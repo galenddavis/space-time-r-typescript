@@ -1,4 +1,5 @@
 const path = require('path');
+// just added
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -12,6 +13,7 @@ module.exports = {
     devServer: {
         static: path.resolve(__dirname, './public')
     },
+    // just added
     plugins: [
         new MiniCssExtractPlugin({
             filename: isDevelopment ? '[name].css' : '[name].[hash].css',
@@ -38,6 +40,7 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
+            // Just added
             {
                 test: /\.module\.s(a|c)ss$/,
                 loader: [
