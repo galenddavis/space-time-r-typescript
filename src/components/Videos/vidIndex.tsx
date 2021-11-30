@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { util } from 'webpack';
 import { VideoIndexItem } from './vidIndexItem';
 const Util = require('../../util/vid-utils');
 

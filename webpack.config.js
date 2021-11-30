@@ -41,21 +41,16 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             // Just added
-            
             {
-                test: /\.s(a|c)ss$/,
-                exclude: /\.module.(s(a|c)ss)$/,
-                loader: [
-                    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: isDevelopment
-                        }
-                    }
+                test: /\.s[ac]ss$/, 
+                exclude: /node_modules/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
                 ]
-            }
+            },
+            
         ]
     },
     resolve: {
