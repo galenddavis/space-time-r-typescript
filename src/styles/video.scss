@@ -1,0 +1,22 @@
+.video-player {
+    border: 2px solid red;
+}
+.video-index {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 150%;
+    z-index: 2;
+}
+
+.video {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.unhidden {
+    display: flex;
+}

@@ -1,4 +1,7 @@
 const path = require('path');
+// just added
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
     context: __dirname,
@@ -10,6 +13,13 @@ module.exports = {
     devServer: {
         static: path.resolve(__dirname, './public')
     },
+    // just added
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+            chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+        })
+    ],
     module: {
         rules: [
             {
@@ -30,9 +40,23 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
+            // Just added
+            {
+                test: /\.s[ac]ss$/, 
+                exclude: /node_modules/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: "asset/resource"
+            },
         ]
     },
     resolve: {
-        extensions: [".js", ".jsx", ".tsx", "*"]
+        extensions: [".js", ".jsx", ".tsx", ".scss", "*"]
     },
 }
