@@ -1,62 +1,34 @@
-const path = require('path');
-// just added
+const prod = process.env.NODE_ENV === 'production';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const isDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
-    context: __dirname,
-    entry: path.resolve(__dirname, './src/index.js'),
+    mode: prod ? 'production' : 'development',
+    entry: './src/index.tsx',
     output: {
-        path: path.resolve(__dirname, './public'),
-        filename: 'bundle.js',
+        path: __dirname + './public',
     },
-    devServer: {
-        static: path.resolve(__dirname, './public')
-    },
-    // just added
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-            chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-        })
-    ],
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                loader: "ts-loader"
-            },
-            {
-                test: /\.jsx?$/,
+                test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/env', '@babel/react']
-                    },
+                resolve: {
+                    extensions: [".ts", ".tsx", ".js", ".json"],
                 },
+                use: "ts-loader"
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
-            // Just added
-            {
-                test: /\.s[ac]ss$/, 
-                exclude: /node_modules/,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader"
-                ]
-            },
-            {
-                test: /\.(png|jpg|jpeg|gif)$/i,
-                type: "asset/resource"
+                use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
         ]
     },
-    resolve: {
-        extensions: [".js", ".jsx", ".tsx", ".scss", "*"]
-    },
-}
+    devtool: prod ? undefined : "source-map",
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'public/index.html',
+        }),
+        new MiniCssExtractPlugin(),
+    ],
+};

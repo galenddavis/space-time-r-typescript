@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { Timer } from './timer'
 
 export const SpaceTimer = () => {
-    const defaultDuration: number = 25;
-    const shortBreak: number = 5;
-    const longBreak: number = 15;
+    const defaultDuration = 25;
+    const shortBreak = 5;
+    const longBreak = 15;
 
-    const [shortBreakCount, setShortBreakCount] = useState<number>(0);
-    const [currentClock, setCurrentClock] = useState<number>(defaultDuration)
+    const [shortBreakCount, setShortBreakCount] = useState(0);
+    const [currentClock, setCurrentClock] = useState(0);
 
-    // Logic for switching clock durations when timer runs out. 
+    // Logic for switching clocks when timer runs out
+
     const switchClocks = () => {
         if (currentClock === 25) {
             setCurrentClock(shortBreak)
@@ -29,17 +30,12 @@ export const SpaceTimer = () => {
 
     return (
         <div className='space-timer'>
-            <section className='tabs'>
-                <span onClick={() => setCurrentClock(defaultDuration)} >Space Timer</span>
+            <section className='timer-tags'>
+                <span onClick={() => setCurrentClock(defaultDuration)} >Space-Time</span>
                 <span onClick={() => setCurrentClock(shortBreak)} >Short Break</span>
                 <span onClick={() => setCurrentClock(longBreak)} >Long Break</span>
             </section>
-            <Timer 
-                duration={currentClock}
-                switchClocks={switchClocks}
-            />
+            <Timer duration={currentClock} switchClocks={switchClocks} />
         </div>
     )
 }
-
-// export default SpaceTimer;
