@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 
-export const Timer = ({ duration, switchClocks }) => {
+interface TimerProps {
+    duration: number,
+    switchClocks(): any 
+}
+
+export const Timer = ({ duration, switchClocks }: TimerProps) => {
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(duration);
     const [running, setRunning] = useState(false);
@@ -43,21 +48,21 @@ export const Timer = ({ duration, switchClocks }) => {
 
     // useEffect for countdown functionality
     useEffect(() => {
-        let interval = null;
+        // let interval = null;
         if (running) {
-            interval = setInterval(() => {
+            const interval = setInterval(() => {
                 countDown()
             }, 0.5)
+            return () => clearInterval(interval)
         }
-        return () => clearInterval(interval)
     }, [running, countDown])
 
     return (
         <div>
-            <span>{minutes}</span>
+            <span>{minutes}:</span>
             <span>{('0' + seconds).slice(-2)}</span>
             <button onClick={toggle}>{startBtn}</button>
-            <button onClick={reset}>{reset}</button>
+            <button onClick={reset}>Reset</button>
         </div>
     )
 }

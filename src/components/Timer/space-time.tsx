@@ -7,7 +7,7 @@ export const SpaceTimer = () => {
     const longBreak = 15;
 
     const [shortBreakCount, setShortBreakCount] = useState(0);
-    const [currentClock, setCurrentClock] = useState(0);
+    const [currentClock, setCurrentClock] = useState(defaultDuration);
 
     // Logic for switching clocks when timer runs out
 
