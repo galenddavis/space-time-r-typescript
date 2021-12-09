@@ -104,7 +104,6 @@
   "include": [],
   "exclude": [],
   "files": [
-    "./src/components/Timer/spaceTimer.tsx",
-    "src/components/Timer/timer.tsx",
+    "src/components/Timer/spaceTimer.tsx"
   ]
 }

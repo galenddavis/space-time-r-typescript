@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { VideoIndexItem } from './vidIndexItem';
+const changeIndex = require('../../assets/cassette_btn.png');
 const Util = require('../../util/vid-utils');
 
-type VideoIdxProps = {
-    changeVideo(arg0: string): any
-}
+// type VideoIdxProps = {
+//     changeVideo(arg0: string): any
+// }
 
 // type HiddenIndex = "hidden" | "unhidden"
 
-export interface Video {
-    title: "string",
-    id: string
-}
+// export interface Video {
+//     title: "string",
+//     id: string
+// }
 
-export const VideoIndex = ({changeVideo}: VideoIdxProps) => {
-    const [indexHidden, setIndexHidden] = useState<string>('hidden');
+export const VideoIndex = ({changeVideo}) => {
+    const [indexHidden, setIndexHidden] = useState('hidden');
 
     // Toggles visibility of track list
     const toggleIndex = () => {
@@ -23,7 +24,7 @@ export const VideoIndex = ({changeVideo}: VideoIdxProps) => {
     }
 
     // Mapping over videos in list
-    const vidTitles = Util.videos.map((video: Video) => {
+    const vidTitles = Util.videos.map((video) => {
         return (
             <VideoIndexItem
                 key={Util.videos.indexOf(video)}
@@ -37,7 +38,8 @@ export const VideoIndex = ({changeVideo}: VideoIdxProps) => {
     return (
         <div>
             <ul className={`video-index ${indexHidden}`}>{vidTitles}</ul>
-            <button className='show-music btn' onClick={toggleIndex}>Show Music</button>
+            <img src={changeIndex} alt="change index" onClick={toggleIndex} />
+            {/* <button className='show-music btn' onClick={toggleIndex}>Show Music</button> */}
         </div>
     )
 }
