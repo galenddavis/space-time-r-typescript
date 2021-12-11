@@ -7,10 +7,10 @@ interface TimerProps {
 }
 
 export const Timer = ({ duration, switchClocks }: TimerProps) => {
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(duration);
-    const [running, setRunning] = useState(false);
-    const [startBtn, setStartBtn] = useState("Start");
+    const [seconds, setSeconds] = useState<number>(0);
+    const [minutes, setMinutes] = useState<number>(duration);
+    const [running, setRunning] = useState<boolean>(false);
+    const [startBtn, setStartBtn] = useState<string>("Start");
 
     // Timer start/stop toggle
     const toggle = useCallback(() => {
