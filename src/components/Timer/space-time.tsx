@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Timer } from './timer'
+import { VidPlayer } from '../Videos/vid-player';
+const Util = require('../../util/vid-utils');
 
 export const SpaceTimer = () => {
     const defaultDuration:number = 25;
@@ -28,6 +30,8 @@ export const SpaceTimer = () => {
         }
     }
 
+    const firstVid = Util.videos[0].id
+
     return (
         <div className='space-timer'>
             <section className='timer-tags'>
@@ -36,6 +40,7 @@ export const SpaceTimer = () => {
                 <span onClick={() => setCurrentClock(longBreak)} >Long Break</span>
             </section>
             <Timer duration={currentClock} switchClocks={switchClocks} />
+            <VidPlayer videoId={firstVid} />
         </div>
     )
 }
